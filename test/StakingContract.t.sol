@@ -20,6 +20,8 @@ contract StakingTestContract is Test {
 
     function testUnStake() public {
         uint value = 10 ether;
+        vm.startPrank(0x587EFaEe4f308aB2795ca35A27Dff8c1dfAF9e3f);
+        vm.deal(0x587EFaEe4f308aB2795ca35A27Dff8c1dfAF9e3f,value);
         c.stake{value: value}(value);
         c.unstake(value);
         assert(c.totalStaked() == value / 2);
