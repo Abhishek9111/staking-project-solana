@@ -17,7 +17,7 @@ contract StakingContract{
         
     }
 
-    function unstake(uint256 amount){
+    function unstake(uint256 amount) public payable{
          require(msg.value >0,"The amount should be greater than 0");
         require(amount =< stakeBalances[msg.sender],"Not enough balance");
         payable(msg.sender).transfer(amount/2);
